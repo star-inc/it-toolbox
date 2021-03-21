@@ -1,26 +1,31 @@
 <template>
-  <div class="index">
-    <h1>Your IP Address: {{ ip_addr }}</h1>
+  <div class="index md-toolbar-row md-toolbar-offset">
+    <span class="md-display-1">Your IP Address: {{ ip_addr }}</span>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: 'Index',
+  name: "Index",
   data: () => ({
-      ip_addr: null
+    ip_addr: null,
   }),
   methods: {
     async getIP() {
-        const response =
-           await axios.get("https://restapi.starinc.xyz/basic/ip");
-        return response.data.data.ip_addr
-    }
+      const response = await axios.get("https://restapi.starinc.xyz/basic/ip");
+      return response.data.data.ip_addr;
+    },
   },
   async created() {
-      this.ip_addr = await this.getIP();
-  }
-}
+    this.ip_addr = await this.getIP();
+  },
+};
 </script>
+
+<style scoped>
+.index {
+    padding-top: 55px;
+}
+</style>

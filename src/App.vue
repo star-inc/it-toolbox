@@ -1,45 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="logo" src="./assets/logo.png">
-    <Index />
-    <p>&copy; 2021 <a href="https://starinc.xyz">Star Inc.</a></p>
+  <div class="page-container">
+    <md-app md-waterfall>
+      <md-app-toolbar class="md-large md-primary">
+        <Index />
+      </md-app-toolbar>
+    </md-app>
   </div>
 </template>
 
 <script>
-import Index from './views/Index.vue'
+import Index from "./views/Index.vue";
 
 export default {
-  name: 'App',
-  components: { Index }
-}
+  name: "App",
+  components: { Index },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss" scoped>
+.md-app {
+  max-height: 400px;
+  border: 1px solid rgba(#000, 0.12);
 }
 
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+.md-app-toolbar {
+  height: 196px;
 }
 </style>
