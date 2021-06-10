@@ -1,7 +1,5 @@
 <template>
-  <div class="index md-toolbar-row md-toolbar-offset">
-    <span class="md-display-1">Your IP Address: {{ ip_addr }}</span>
-  </div>
+  <span>Your IP Address: {{ ip_addr }}</span>
 </template>
 
 <script>
@@ -23,9 +21,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.index {
-    padding-top: 55px;
-}
-</style>
