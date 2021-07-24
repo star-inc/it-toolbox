@@ -25,6 +25,11 @@
           <a href="javascript:void(0)" @click="active = key">{{ name }}</a>
         </td>
       </tr>
+      <tr>
+        <td colspan="2">
+          Maintainer: <a href="https://security.starinc.xyz/">Star Inc. Security Department</a>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
