@@ -17,11 +17,12 @@
         </td>
         <td :rowspan="functions.length + 1">
           <browser v-if="active===0"/>
+          <UUIDv4 v-if="active===1"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
         <td>
-          <a href="#" @click="active = key">{{ name }}</a>
+          <a href="javascript:void(0)" @click="active = key">{{ name }}</a>
         </td>
       </tr>
       </tbody>
@@ -31,14 +32,16 @@
 
 <script>
 import Browser from "./views/Browser.vue";
+import UUIDv4 from "./views/UUIDv4.vue";
 
 export default {
   name: "App",
-  components: {Browser},
+  components: {Browser, UUIDv4},
   data: () => ({
     active: 0,
     functions: [
-      "Browser"
+      "Browser",
+      "UUID v4"
     ]
   })
 };

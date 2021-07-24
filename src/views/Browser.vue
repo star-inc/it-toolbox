@@ -9,16 +9,10 @@
 import axios from "axios";
 
 export default {
-  name: "Index",
+  name: "Browser",
   data: () => ({
     ip_addr: null,
   }),
-  methods: {
-    async getIP() {
-      const response = await axios.get("https://restapi.starinc.xyz/basic/ip");
-      return response.data.data.ip_addr;
-    },
-  },
   computed: {
     userAgent() {
       if (!window.navigator) {
@@ -28,7 +22,8 @@ export default {
     }
   },
   async created() {
-    this.ip_addr = await this.getIP();
+    const response = await axios.get("https://restapi.starinc.xyz/basic/ip");
+    this.ip_addr = response.data.data.ip_addr;
   },
 };
 </script>
