@@ -27,6 +27,7 @@
       </tr>
       <tr>
         <td colspan="2">
+          Source Code: <a href="https://github.com/star-inc/tools">Github Repository</a>
           Maintainer: <a href="https://security.starinc.xyz/">Star Inc. Security Department</a>
         </td>
       </tr>
