@@ -18,6 +18,7 @@
         <td :rowspan="functions.length + 1">
           <browser v-if="active===0"/>
           <UUIDv4 v-if="active===1"/>
+          <unix-timestamp v-if="active===2"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -39,21 +40,23 @@
 <script>
 import Browser from "./views/Browser.vue";
 import UUIDv4 from "./views/UUIDv4.vue";
+import UnixTimestamp from "./views/UnixTimestamp.vue";
 
 export default {
   name: "App",
-  components: {Browser, UUIDv4},
+  components: {Browser, UUIDv4, UnixTimestamp},
   data: () => ({
     active: 0,
     functions: [
       "Browser",
-      "UUID v4"
+      "UUID v4",
+      "Unix Timestamp"
     ]
   })
 };
 </script>
 
-<style>
+<style scoped>
 table, th, td {
   font-family: "Roboto", sans-serif;
   border: 1px solid #000;
