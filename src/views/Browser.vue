@@ -22,8 +22,13 @@ export default {
     }
   },
   async created() {
-    const response = await axios.get("https://restapi.starinc.xyz/basic/ip");
-    this.ip_addr = response.data.data.ip_addr;
+    try {
+      const response = await axios.get("https://restapi.starinc.xyz/basic/ip");
+      this.ip_addr = response.data.data.ip_addr;
+    } catch (e) {
+      this.ip_addr = 'Unavailable';
+      console.error(e);
+    }
   },
 };
 </script>

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { uuid as generate } from 'uuidv4';
+import {v4 as generate} from 'uuid';
 
 export default {
   name: "UUIDv4",
@@ -17,7 +17,7 @@ export default {
   }),
   methods: {
     async refresh() {
-      this.uuid = generate();
+      this.uuid = generate.v4();
     },
   },
   created() {

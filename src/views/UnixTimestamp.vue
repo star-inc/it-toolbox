@@ -19,8 +19,13 @@ export default {
     }
   },
   async created() {
-    const response = await axios.get("https://restapi.starinc.xyz/basic/now");
-    this.remoteTimestamp = response.data.data.posix;
+    try {
+      const response = await axios.get("https://restapi.starinc.xyz/basic/now");
+      this.remoteTimestamp = response.data.data.posix;
+    } catch (e) {
+      this.remoteTimestamp = 'Unavailable';
+      console.error(e);
+    }
   },
 };
 </script>

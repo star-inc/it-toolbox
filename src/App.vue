@@ -23,7 +23,7 @@
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
         <td>
-          <a href="javascript:void(0)" @click="active = key">{{ name }}</a>
+          <a href="javascript:void(0)" @click="view(key)">{{ name }}</a>
         </td>
       </tr>
       <tr>
@@ -52,7 +52,20 @@ export default {
       "UUID v4",
       "Unix Timestamp"
     ]
-  })
+  }),
+  methods: {
+    view(key) {
+      this.active = key
+      window.location.hash = `#${this.active}`
+    }
+  },
+  created() {
+    if (window.location.hash) {
+      const query = parseInt(window.location.hash.substring(1));
+      this.active = query && query < this.functions.length ? query : 0;
+    }
+    window.location.hash = `#${this.active}`
+  }
 };
 </script>
 
