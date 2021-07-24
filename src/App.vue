@@ -19,6 +19,7 @@
           <browser v-if="active===0"/>
           <UUIDv4 v-if="active===1"/>
           <unix-timestamp v-if="active===2"/>
+          <qr-code-generator v-if="active===3"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -41,16 +42,18 @@
 import Browser from "./views/Browser.vue";
 import UUIDv4 from "./views/UUIDv4.vue";
 import UnixTimestamp from "./views/UnixTimestamp.vue";
+import QrCodeGenerator from "./views/QrCodeGenerator.vue";
 
 export default {
   name: "App",
-  components: {Browser, UUIDv4, UnixTimestamp},
+  components: {Browser, UUIDv4, UnixTimestamp, QrCodeGenerator},
   data: () => ({
     active: 0,
     functions: [
       "Browser",
       "UUID v4",
-      "Unix Timestamp"
+      "Unix Timestamp",
+      "QR Code Generator"
     ]
   }),
   methods: {
