@@ -1,5 +1,8 @@
 <template>
-  <span>Your IP Address: {{ ip_addr }}</span>
+  <ul>
+    <li>IP Address: {{ ip_addr }}</li>
+    <li>User-Agent: {{ userAgent }}</li>
+  </ul>
 </template>
 
 <script>
@@ -16,8 +19,22 @@ export default {
       return response.data.data.ip_addr;
     },
   },
+  computed: {
+    userAgent() {
+      if (!window.navigator) {
+        return "Unsupported";
+      }
+      return navigator.userAgent;
+    }
+  },
   async created() {
     this.ip_addr = await this.getIP();
   },
 };
 </script>
+
+<style>
+ul {
+  padding: 0 20px;
+}
+</style>
