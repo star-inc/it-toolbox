@@ -3,6 +3,11 @@
     <div>
       <input v-model="input" type="text"/>
     </div>
+    <span>
+      Special thanks:
+      <a href="https://github.com/neocotic/qrious">neocotic/QRious</a>
+      provides the fast QR Code generation library
+    </span>
     <div>
       <img v-show="image" :src="image" alt="instance.value"/>
     </div>

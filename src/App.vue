@@ -20,6 +20,13 @@
           <UUIDv4 v-if="active===1"/>
           <unix-timestamp v-if="active===2"/>
           <qr-code-generator v-if="active===3"/>
+          <qr-code-scanner v-if="active===4"/>
+          <google-dns-query v-if="active===5"/>
+          <cloudflare-dns-query v-if="active===6"/>
+          <opendns-dns-query v-if="active===7"/>
+          <dig v-if="active===8"/>
+          <whois v-if="active===9"/>
+          <view-source v-if="active===10"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -43,17 +50,43 @@ import Browser from "./views/Browser.vue";
 import UUIDv4 from "./views/UUIDv4.vue";
 import UnixTimestamp from "./views/UnixTimestamp.vue";
 import QrCodeGenerator from "./views/QrCodeGenerator.vue";
+import QrCodeScanner from "./views/QrCodeScanner.vue";
+import GoogleDnsQuery from "./views/GoogleDnsQuery.vue";
+import CloudflareDnsQuery from "./views/CloudflareDnsQuery.vue";
+import OpendnsDnsQuery from "./views/OpendnsDnsQuery.vue";
+import Dig from "./views/Dig.vue";
+import Whois from "./views/Whois.vue";
+import ViewSource from "./views/ViewSource.vue";
 
 export default {
   name: "App",
-  components: {Browser, UUIDv4, UnixTimestamp, QrCodeGenerator},
+  components: {
+    Browser,
+    UUIDv4,
+    UnixTimestamp,
+    QrCodeGenerator,
+    QrCodeScanner,
+    GoogleDnsQuery,
+    CloudflareDnsQuery,
+    OpendnsDnsQuery,
+    Dig,
+    Whois,
+    ViewSource
+  },
   data: () => ({
     active: 0,
     functions: [
       "Browser",
       "UUID v4",
       "Unix Timestamp",
-      "QR Code Generator"
+      "QR Code Generator",
+      "QR Code Scanner",
+      "Google DNS Query (Nslookup)",
+      "Cloudflare DNS Query (Nslookup)",
+      "OpenDNS DNS Query (Nslookup)",
+      "Dig",
+      "Whois",
+      "View Source"
     ]
   }),
   methods: {
