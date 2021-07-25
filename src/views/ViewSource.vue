@@ -7,7 +7,7 @@
     <span>
       Special thanks:
       <a href="https://allorigins.win">allOrigins</a>
-      provides the fast CORS Proxy
+      provides the fast CORS Proxy.
     </span>
     <div v-show="result">
       {{ result }}

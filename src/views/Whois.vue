@@ -7,7 +7,7 @@
     <div v-show="error">
       {{ result }}
     </div>
-    <ul v-if="result && !error">
+    <ul v-if="!error && result">
       <li>Available: {{ result.available ? "Yes" : "No" }}</li>
       <li>Dataset:<br/>{{ result.lookup }}</li>
       <li>Source:<br/>{{ result.info }}</li>

@@ -8,14 +8,17 @@
       <span>
         Special thanks:
         <a href="https://dns.google">Google Public DNS</a>
-        provides JSON API of DoH service for querying
+        provides JSON API of DoH service for querying.
       </span><br/>
       <span>
         Get more powerful tools by Google, please visit to
-        <a href="https://toolbox.googleapps.com">Google Admin Toolbox</a>
+        <a href="https://toolbox.googleapps.com">Google Admin Toolbox</a>.
       </span>
     </div>
-    <ul v-show="results.length">
+    <div v-show="error">
+      {{ result }}
+    </div>
+    <ul v-if="!error && results.length">
       Answers:
       <li v-for="(result, index) in results" :key="index">
         {{ result.data }}
@@ -34,7 +37,8 @@ export default {
   data: () => ({
     input: "",
     results: [],
-    latch: false
+    latch: false,
+    error: false
   }),
   methods: {
     async submit() {
@@ -43,7 +47,9 @@ export default {
       try {
         const result = await axios.get(GOOGLE_DNS + this.input);
         this.results = result.status === 200 ? result.data.Answer : "failed";
+        this.error = false;
       } catch (e) {
+        this.error = true;
         this.results = "unavailable";
         console.error(e);
       }

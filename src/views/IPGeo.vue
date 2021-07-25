@@ -7,7 +7,7 @@
     <div v-show="error">
       {{ result }}
     </div>
-    <div v-if="result && !error">
+    <div v-if="!error && result">
       <ul>
         <li>Continent: {{ result.continent.names.en }}</li>
         <li>Country: {{ result.country.names.en }}</li>

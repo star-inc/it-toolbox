@@ -24,19 +24,22 @@
       <input type="submit" @click.prevent="submit"/>
     </form>
     <div>
-    <span>
+      <span>
         More details:
         <a href="https://developers.cloudflare.com/1.1.1.1/dns-over-https/json-format">
           Cloudflare DoH JSON API documents
         </a>
-    </span><br/>
+      </span><br/>
       <span>
         Special thanks:
         <a href="https://cloudflare.com">Cloudflare</a>
-        provides us the high-reliability CDN and the JSON API of DoH service for querying
-    </span>
+        provides us the high-reliability CDN and the JSON API of DoH service for querying.
+      </span>
     </div>
-    <div v-if="result">
+    <div v-show="error">
+      {{ result }}
+    </div>
+    <div v-if="!error && result">
       <ul v-if="showList && Array.isArray(result.Answer)">
         Answers List:
         <li v-for="(item, index) in result.Answer" :key="index">
@@ -72,7 +75,8 @@ export default {
     latch: false,
     listTypes: ['A', "AAAA"],
     showList: true,
-    dnsTypes
+    dnsTypes,
+    error: false
   }),
   methods: {
     async submit() {
@@ -90,7 +94,9 @@ export default {
         );
         this.result = result.status === 200 ? result.data : "failed";
         this.showList = this.listTypes.includes(this.input.type);
+        this.error = false;
       } catch (e) {
+        this.error = true;
         this.result = "unavailable";
         console.error(e);
       }
