@@ -48,9 +48,9 @@
       </ul>
       <div v-else>
         Raw Answers:
-        <div>
+        <code>
           {{ result }}
-        </div>
+        </code>
       </div>
     </div>
   </div>

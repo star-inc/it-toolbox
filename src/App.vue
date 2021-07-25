@@ -28,6 +28,9 @@
           <whois v-if="active===9"/>
           <view-source v-if="active===10"/>
           <IPGeo v-if="active===11"/>
+          <hash v-if="active===12"/>
+          <base64 v-if="active===13"/>
+          <base64-url v-if="active===14"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -47,18 +50,21 @@
 </template>
 
 <script>
-import Browser from "./views/Browser.vue";
-import UUIDv4 from "./views/UUIDv4.vue";
-import UnixTimestamp from "./views/UnixTimestamp.vue";
-import QrCodeGenerator from "./views/QrCodeGenerator.vue";
-import QrCodeScanner from "./views/QrCodeScanner.vue";
-import GoogleDnsQuery from "./views/GoogleDnsQuery.vue";
-import CloudflareDnsQuery from "./views/CloudflareDnsQuery.vue";
-import OpendnsDnsQuery from "./views/OpendnsDnsQuery.vue";
-import LegacyDnsQuery from "./views/LegacyDnsQuery.vue";
-import Whois from "./views/Whois.vue";
-import ViewSource from "./views/ViewSource.vue";
+import Browser from "./views/Browser";
+import UUIDv4 from "./views/UUIDv4";
+import UnixTimestamp from "./views/UnixTimestamp";
+import QrCodeGenerator from "./views/QrCodeGenerator";
+import QrCodeScanner from "./views/QrCodeScanner";
+import GoogleDnsQuery from "./views/GoogleDnsQuery";
+import CloudflareDnsQuery from "./views/CloudflareDnsQuery";
+import OpendnsDnsQuery from "./views/OpendnsDnsQuery";
+import LegacyDnsQuery from "./views/LegacyDnsQuery";
+import Whois from "./views/Whois";
+import ViewSource from "./views/ViewSource";
 import IPGeo from "./views/IPGeo";
+import Hash from "./views/Hash";
+import Base64 from "./views/Base64";
+import Base64Url from "./views/Base64Url";
 
 export default {
   name: "App",
@@ -74,7 +80,10 @@ export default {
     LegacyDnsQuery,
     Whois,
     ViewSource,
-    IPGeo
+    IPGeo,
+    Hash,
+    Base64,
+    Base64Url,
   },
   data: () => ({
     active: 0,
@@ -90,7 +99,10 @@ export default {
       "Legacy Dns Query (Nslookup)",
       "Whois",
       "View Source",
-      "IP Geolocation"
+      "IP Geolocation",
+      "Hash",
+      "Base64",
+      "Base64 URL"
     ]
   }),
   methods: {

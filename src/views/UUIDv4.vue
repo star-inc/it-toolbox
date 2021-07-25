@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li>UUID v4: {{ uuid }}</li>
+      <li>UUID v4: <code>{{ uuid }}</code></li>
     </ul>
     <a href="javascript:void(0)" @click="refresh">refresh</a>
   </div>

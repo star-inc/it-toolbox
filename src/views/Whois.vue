@@ -9,8 +9,8 @@
     </div>
     <ul v-if="!error && result">
       <li>Available: {{ result.available ? "Yes" : "No" }}</li>
-      <li>Dataset:<br/>{{ result.lookup }}</li>
-      <li>Source:<br/>{{ result.info }}</li>
+      <li>Dataset:<br/><code>{{ result.lookup }}</code></li>
+      <li>Source:<br/><code>{{ result.info }}</code></li>
     </ul>
   </div>
 </template>

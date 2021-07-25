@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li>Local: {{ localTimestamp }}</li>
-    <li>Remote: {{ remoteTimestamp }}</li>
+    <li>Local: <code>{{ localTimestamp }}</code></li>
+    <li>Remote: <code>{{ remoteTimestamp }}</code></li>
   </ul>
 </template>
 

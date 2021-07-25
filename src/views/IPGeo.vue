@@ -16,9 +16,9 @@
       </ul>
       <div>
         Raw Data:
-        <div>
+        <code>
           {{ result }}
-        </div>
+        </code>
       </div>
     </div>
   </div>

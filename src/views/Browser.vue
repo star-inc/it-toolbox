@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li>IP Address: {{ ip_addr }}</li>
-    <li>User-Agent: {{ userAgent }}</li>
+    <li>IP Address: <code>{{ ip_addr }}</code></li>
+    <li>User-Agent: <code>{{ userAgent }}</code></li>
   </ul>
 </template>
 

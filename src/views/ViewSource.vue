@@ -10,7 +10,7 @@
       provides the fast CORS Proxy.
     </span>
     <div v-show="result">
-      {{ result }}
+      <code>{{ result }}</code>
     </div>
   </div>
 </template>

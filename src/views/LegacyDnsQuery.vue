@@ -15,7 +15,7 @@
       <input type="submit" @click.prevent="submit"/>
     </form>
     <ul v-show="result">
-      <li>{{ result }}</li>
+      <li><code>{{ result }}</code></li>
     </ul>
   </div>
 </template>
