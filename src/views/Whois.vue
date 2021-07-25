@@ -5,9 +5,9 @@
       <input type="submit" @click.prevent="submit"/>
     </form>
     <ul v-show="result">
-      <li>{{ result.available }}</li>
-      <li>{{ result.lookup }}</li>
-      <li>{{ result.info }}</li>
+      <li>Available: {{ result.available ? "Yes" : "No" }}</li>
+      <li>Dataset:<br/>{{ result.lookup }}</li>
+      <li>Source:<br/>{{ result.info }}</li>
     </ul>
   </div>
 </template>
