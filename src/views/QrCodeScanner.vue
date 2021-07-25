@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div>
+    <div v-show="!result" class="scan-box">
       <video id="qr-scanner"></video>
     </div>
     <span>
@@ -40,6 +40,7 @@ export default {
     },
     resume() {
       this.latch = false;
+      this.result = "";
       this.instance.start();
     }
   },
@@ -59,5 +60,10 @@ export default {
 
 .container > div {
   margin: 20px 0;
+}
+
+.scan-box {
+  max-width: 300px;
+  max-height: 300px;
 }
 </style>
