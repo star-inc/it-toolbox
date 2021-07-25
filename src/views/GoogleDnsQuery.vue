@@ -16,7 +16,7 @@
       </span>
     </div>
     <div v-show="error">
-      {{ result }}
+      {{ results }}
     </div>
     <ul v-if="!error && results.length">
       Answers:

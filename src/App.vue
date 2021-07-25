@@ -96,7 +96,7 @@ export default {
       "Google DNS Query (Nslookup)",
       "Cloudflare DNS Query (Nslookup)",
       "OpenDNS DNS Query (Nslookup)",
-      "Legacy Dns Query (Nslookup)",
+      "Legacy DNS Query (Nslookup)",
       "Whois",
       "View Source",
       "IP Geolocation",
