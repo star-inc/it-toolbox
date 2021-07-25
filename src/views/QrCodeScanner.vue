@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <div v-show="!result" class="scan-box">
+    <div v-show="systemMessage">
+      Status: {{ systemMessage }}
+    </div>
+    <div v-if="!unavailable" v-show="!result">
       <video id="qr-scanner"></video>
     </div>
     <span>
@@ -28,9 +31,11 @@ import QrScannerWorkerPath from '!!file-loader!../../node_modules/qr-scanner/qr-
 export default {
   name: "QrCodeScanner",
   data: () => ({
+    unavailable: false,
     instance: null,
     result: "",
-    latch: false
+    latch: false,
+    systemMessage: ""
   }),
   methods: {
     onScan(result) {
@@ -44,7 +49,13 @@ export default {
       this.instance.start();
     }
   },
-  mounted() {
+  async mounted() {
+    const camaraExists = await QrScanner.hasCamera();
+    if (!camaraExists) {
+      this.unavailable = true;
+      this.systemMessage = "Camara is unavailable.";
+      return;
+    }
     const videoElement = document.getElementById("qr-scanner");
     QrScanner.WORKER_PATH = QrScannerWorkerPath
     this.instance = new QrScanner(videoElement, this.onScan);
@@ -62,7 +73,7 @@ export default {
   margin: 20px 0;
 }
 
-.scan-box {
+#qr-scanner {
   max-width: 300px;
   max-height: 300px;
 }
