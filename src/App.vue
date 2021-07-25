@@ -24,7 +24,7 @@
           <google-dns-query v-if="active===5"/>
           <cloudflare-dns-query v-if="active===6"/>
           <opendns-dns-query v-if="active===7"/>
-          <dig v-if="active===8"/>
+          <legacy-dns-query v-if="active===8"/>
           <whois v-if="active===9"/>
           <view-source v-if="active===10"/>
         </td>
@@ -54,7 +54,7 @@ import QrCodeScanner from "./views/QrCodeScanner.vue";
 import GoogleDnsQuery from "./views/GoogleDnsQuery.vue";
 import CloudflareDnsQuery from "./views/CloudflareDnsQuery.vue";
 import OpendnsDnsQuery from "./views/OpendnsDnsQuery.vue";
-import Dig from "./views/Dig.vue";
+import LegacyDnsQuery from "./views/LegacyDnsQuery.vue";
 import Whois from "./views/Whois.vue";
 import ViewSource from "./views/ViewSource.vue";
 
@@ -69,7 +69,7 @@ export default {
     GoogleDnsQuery,
     CloudflareDnsQuery,
     OpendnsDnsQuery,
-    Dig,
+    LegacyDnsQuery,
     Whois,
     ViewSource
   },
@@ -84,7 +84,7 @@ export default {
       "Google DNS Query (Nslookup)",
       "Cloudflare DNS Query (Nslookup)",
       "OpenDNS DNS Query (Nslookup)",
-      "Dig",
+      "Legacy Dns Query (Nslookup)",
       "Whois",
       "View Source"
     ]
