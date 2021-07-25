@@ -29,7 +29,7 @@ export default {
   }),
   methods: {
     async submit() {
-      if (!this.input.name) return;
+      if (!this.input) return;
       this.latch = true;
       try {
         const result = await axios.get(CORS_PROXY + this.input);

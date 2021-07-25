@@ -24,7 +24,7 @@
 import axios from "axios";
 
 export default {
-  name: "Dig",
+  name: "LegacyDnsQuery",
   data: () => ({
     input: {
       name: "",
