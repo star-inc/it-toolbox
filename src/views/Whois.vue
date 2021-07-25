@@ -4,7 +4,10 @@
       <input v-model="input" type="text"/>
       <input type="submit" @click.prevent="submit"/>
     </form>
-    <ul v-show="result">
+    <div v-show="error">
+      {{ result }}
+    </div>
+    <ul v-if="result && !error">
       <li>Available: {{ result.available ? "Yes" : "No" }}</li>
       <li>Dataset:<br/>{{ result.lookup }}</li>
       <li>Source:<br/>{{ result.info }}</li>
@@ -21,6 +24,7 @@ export default {
     input: "",
     result: null,
     latch: false,
+    error: false
   }),
   methods: {
     async submit() {
@@ -31,7 +35,9 @@ export default {
             `https://restapi.starinc.xyz/basic/whois?domain=${this.input}`
         );
         this.result = result.data.data;
+        this.error = false;
       } catch (e) {
+        this.error = true;
         if (e.response.status === 500) {
           this.result = "failed";
         } else {

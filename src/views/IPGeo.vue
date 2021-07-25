@@ -4,7 +4,10 @@
       <input v-model="input" type="text"/>
       <input type="submit" @click.prevent="submit"/>
     </form>
-    <div v-if="result">
+    <div v-show="error">
+      {{ result }}
+    </div>
+    <div v-if="result && !error">
       <ul>
         <li>Continent: {{ result.continent.names.en }}</li>
         <li>Country: {{ result.country.names.en }}</li>
@@ -30,6 +33,7 @@ export default {
     input: "",
     result: null,
     latch: false,
+    error: false
   }),
   methods: {
     async submit() {
@@ -40,7 +44,9 @@ export default {
             `https://restapi.starinc.xyz/basic/ip/geo?ip_addr=${this.input}`
         );
         this.result = result.data.data;
+        this.error = false;
       } catch (e) {
+        this.error = true;
         if (e.response.status === 500) {
           this.result = "failed";
         } else {
