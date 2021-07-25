@@ -65,4 +65,8 @@ export default {
 .container > div {
   margin: 20px 0;
 }
+
+ul {
+  padding: 0 20px;
+}
 </style>
