@@ -39,6 +39,7 @@ export default {
         }
       } catch (e) {
         this.result = "unavailable";
+        console.error(e);
       }
       this.latch = false;
     }

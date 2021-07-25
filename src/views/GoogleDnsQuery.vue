@@ -45,6 +45,7 @@ export default {
         this.results = result.status === 200 ? result.data.Answer : "failed";
       } catch (e) {
         this.results = "unavailable";
+        console.error(e);
       }
       this.latch = false;
     }

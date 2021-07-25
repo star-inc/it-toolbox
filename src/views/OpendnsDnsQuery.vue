@@ -70,6 +70,7 @@ export default {
         this.showList = this.listTypes.includes(this.input.type);
       } catch (e) {
         this.result = "unavailable";
+        console.error(e);
       }
       this.latch = false;
     }
