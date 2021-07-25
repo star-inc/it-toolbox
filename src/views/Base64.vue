@@ -5,8 +5,8 @@
     </div>
     <span>
       Special thanks:
-      <a href="https://github.com/neocotic/qrious">neocotic/QRious</a>
-      provides the fast QR Code generation library.
+      <a href="https://github.com/dankogai/js-base64">dankogai/js-base64</a>
+      provides the fast Base64 transcoder library.
     </span>
     <ul>
       <li>Encode:<br/><code>{{ results.encode }}</code></li>
