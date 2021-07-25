@@ -4,11 +4,20 @@
       <input v-model="input" type="text"/>
       <input type="submit" @click.prevent="submit"/>
     </form>
-    <ul v-show="result">
-      <li>Available: {{ result.available ? "Yes" : "No" }}</li>
-      <li>Dataset:<br/>{{ result.lookup }}</li>
-      <li>Source:<br/>{{ result.info }}</li>
-    </ul>
+    <div v-if="result">
+      <ul>
+        <li>Continent: {{ result.continent.names.en }}</li>
+        <li>Country: {{ result.country.names.en }}</li>
+        <li>Registered Country: {{ result.registered_country.names.en }}</li>
+        <li>City: {{ result.city.names.en }}</li>
+      </ul>
+      <div>
+        Raw Data:
+        <div>
+          {{ result }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,7 +25,7 @@
 import axios from "axios";
 
 export default {
-  name: "Whois",
+  name: "IPGeo",
   data: () => ({
     input: "",
     result: null,
@@ -28,7 +37,7 @@ export default {
       this.latch = true;
       try {
         const result = await axios.get(
-            `https://restapi.starinc.xyz/basic/whois?domain=${this.input}`
+            `https://restapi.starinc.xyz/basic/ip/geo?ip_addr=${this.input}`
         );
         this.result = result.data.data;
       } catch (e) {

@@ -27,6 +27,7 @@
           <legacy-dns-query v-if="active===8"/>
           <whois v-if="active===9"/>
           <view-source v-if="active===10"/>
+          <IPGeo v-if="active===11"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -57,6 +58,7 @@ import OpendnsDnsQuery from "./views/OpendnsDnsQuery.vue";
 import LegacyDnsQuery from "./views/LegacyDnsQuery.vue";
 import Whois from "./views/Whois.vue";
 import ViewSource from "./views/ViewSource.vue";
+import IPGeo from "./views/IPGeo";
 
 export default {
   name: "App",
@@ -71,7 +73,8 @@ export default {
     OpendnsDnsQuery,
     LegacyDnsQuery,
     Whois,
-    ViewSource
+    ViewSource,
+    IPGeo
   },
   data: () => ({
     active: 0,
@@ -86,7 +89,8 @@ export default {
       "OpenDNS DNS Query (Nslookup)",
       "Legacy Dns Query (Nslookup)",
       "Whois",
-      "View Source"
+      "View Source",
+      "IP Geolocation"
     ]
   }),
   methods: {
