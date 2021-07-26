@@ -17,10 +17,10 @@
 </template>
 
 <script>
+import {crc16, crc32} from 'js-crc';
 import md2 from 'js-md2';
 import md4 from 'js-md4';
 import md5 from 'js-md5';
-import {crc16, crc32} from 'js-crc';
 import sha1 from 'js-sha1';
 import {sha224, sha256} from 'js-sha256';
 import {sha384, sha512} from 'js-sha512';
@@ -34,9 +34,9 @@ export default {
   }),
   watch: {
     input() {
-      this.values.md2 = md2(this.input);
       this.values.crc16 = crc16(this.input);
       this.values.crc32 = crc32(this.input);
+      this.values.md2 = md2(this.input);
       this.values.md4 = md4(this.input);
       this.values.md5 = md5(this.input);
       this.values.sha1 = sha1(this.input);
