@@ -8,6 +8,7 @@
     </div>
     <div v-show="!latch" :disabled="imageLatch">
       <input
+          accept="image/*"
           alt="Upload QR Code Image"
           type="file"
           @change="fileChange"
