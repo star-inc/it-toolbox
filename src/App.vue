@@ -32,6 +32,7 @@
           <base64 v-if="active===13"/>
           <base64-url v-if="active===14"/>
           <url-encoding v-if="active===15"/>
+          <base64-gzip v-if="active===16"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -67,6 +68,7 @@ import Hash from "./views/Hash";
 import Base64 from "./views/Base64";
 import Base64Url from "./views/Base64Url";
 import UrlEncoding from "./views/UrlEncoding";
+import Base64Gzip from "./views/Base64Gzip";
 
 export default {
   name: "App",
@@ -86,7 +88,8 @@ export default {
     Hash,
     Base64,
     Base64Url,
-    UrlEncoding
+    UrlEncoding,
+    Base64Gzip
   },
   data: () => ({
     active: 0,
@@ -106,7 +109,8 @@ export default {
       "Hash",
       "Base64",
       "Base64 URL",
-      "URL Encoding"
+      "URL Encoding",
+      "Base64Gzip"
     ]
   }),
   methods: {
