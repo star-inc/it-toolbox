@@ -26,8 +26,14 @@ export default {
     async input() {
       try {
         this.results.encode = await this.compress(this.input);
+      } catch (e) {
+        this.results.encode = "";
+        void (e);
+      }
+      try {
         this.results.decode = await this.decompress(this.input);
       } catch (e) {
+        this.results.decode = "";
         void (e);
       }
     }
