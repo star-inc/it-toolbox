@@ -31,6 +31,7 @@
           <hash v-if="active===12"/>
           <base64 v-if="active===13"/>
           <base64-url v-if="active===14"/>
+          <url-encoding v-if="active===15"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -65,6 +66,7 @@ import IPGeo from "./views/IPGeo";
 import Hash from "./views/Hash";
 import Base64 from "./views/Base64";
 import Base64Url from "./views/Base64Url";
+import UrlEncoding from "./views/UrlEncoding";
 
 export default {
   name: "App",
@@ -84,6 +86,7 @@ export default {
     Hash,
     Base64,
     Base64Url,
+    UrlEncoding
   },
   data: () => ({
     active: 0,
@@ -102,7 +105,8 @@ export default {
       "IP Geolocation",
       "Hash",
       "Base64",
-      "Base64 URL"
+      "Base64 URL",
+      "URL Encoding"
     ]
   }),
   methods: {
