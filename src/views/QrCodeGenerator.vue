@@ -9,7 +9,7 @@
       provides the fast QR Code generator library.
     </span>
     <div>
-      <img v-show="image" :src="image" alt="instance.value"/>
+      <img v-show="image" :src="image" :alt="instance.value"/>
     </div>
   </div>
 </template>
