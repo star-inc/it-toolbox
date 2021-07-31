@@ -10,7 +10,8 @@
       </select>
     </div>
     <ul>
-      <li>Result:<br/><code>{{ result }}</code></li>
+      <li>General:<br/><code>{{ result.toString() }}</code></li>
+      <li>Locale:<br/><code>{{ result.toLocaleString() }}</code></li>
     </ul>
   </div>
 </template>
@@ -40,7 +41,7 @@ export default {
           break;
         }
       }
-      return (new Date(value * fix)).toString();
+      return (new Date(value * fix));
     }
   },
 }
