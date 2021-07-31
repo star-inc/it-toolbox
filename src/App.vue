@@ -33,6 +33,7 @@
           <base64-url v-if="active===14"/>
           <url-encoding v-if="active===15"/>
           <base64-gzip v-if="active===16"/>
+          <unix-timestamp-to-local v-if="active===17"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -69,6 +70,7 @@ import Base64 from "./views/Base64";
 import Base64Url from "./views/Base64Url";
 import UrlEncoding from "./views/UrlEncoding";
 import Base64Gzip from "./views/Base64Gzip";
+import UnixTimestampToLocal from "./views/UnixTimestampToLocal";
 
 export default {
   name: "App",
@@ -89,7 +91,8 @@ export default {
     Base64,
     Base64Url,
     UrlEncoding,
-    Base64Gzip
+    Base64Gzip,
+    UnixTimestampToLocal
   },
   data: () => ({
     active: 0,
@@ -110,7 +113,8 @@ export default {
       "Base64",
       "Base64 URL",
       "URL Encoding",
-      "Base64Gzip"
+      "Base64Gzip",
+      "Unix Timestamp To Local"
     ]
   }),
   methods: {
