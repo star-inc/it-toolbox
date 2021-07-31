@@ -18,7 +18,7 @@
 export default {
   name: "UnixTimestampToLocal",
   data: () => ({
-    input: "0",
+    input: `${Math.round((new Date()).getTime() / 1000)}`,
     unit: "s",
   }),
   computed: {
@@ -27,11 +27,11 @@ export default {
       let fix = 0;
       switch (this.unit) {
         case "s": {
-          fix = 0.001;
+          fix = 1000;
           break;
         }
         case "ns": {
-          fix = 1000;
+          fix = 0.001;
           break;
         }
       }
