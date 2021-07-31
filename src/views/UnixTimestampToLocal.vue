@@ -4,8 +4,9 @@
       <input v-model="input" type="text"/>
       <select v-model="unit">
         <option value="s">Second</option>
-        <option value="ms">Microsecond</option>
-        <option value="ns">Nanosecond</option>
+        <option value="ms">MilliSeconds</option>
+        <option value="us">MicroSeconds</option>
+        <option value="ns">NanoSeconds</option>
       </select>
     </div>
     <ul>
@@ -24,14 +25,18 @@ export default {
   computed: {
     result() {
       const value = parseInt(this.input);
-      let fix = 0;
+      let fix = 1;
       switch (this.unit) {
         case "s": {
           fix = 1000;
           break;
         }
-        case "ns": {
+        case "us": {
           fix = 0.001;
+          break;
+        }
+        case "ns": {
+          fix = 0.000001;
           break;
         }
       }
