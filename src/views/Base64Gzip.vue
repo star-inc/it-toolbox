@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import zlib from "zlib";
+import pako from "pako";
 
 export default {
   name: "Base64Gzip",
@@ -25,31 +25,19 @@ export default {
   watch: {
     async input() {
       try {
-        this.results.encode = await this.compress(this.input);
+        this.results.encode = new Buffer(pako.deflate(this.input, { to: 'string' })).toString("base64");
       } catch (e) {
         this.results.encode = "";
         void (e);
       }
       try {
-        this.results.decode = await this.decompress(this.input);
+        this.results.decode = pako.inflate(new Buffer(this.input, "base64"), { to: 'string' });
       } catch (e) {
         this.results.decode = "";
         void (e);
       }
     }
   },
-  methods: {
-    async compress(rawString) {
-      return new Promise((resolve, reject) =>
-          zlib.gzip(rawString, (error, result) => void (!error ? resolve(new Buffer(result).toString("base64")) : reject(error)))
-      );
-    },
-    async decompress(b64String) {
-      return new Promise((resolve, reject) =>
-          zlib.gunzip(new Buffer(b64String, "base64"), (error, result) => void (!error ? resolve(result) : reject(error)))
-      );
-    },
-  }
 }
 </script>
 
