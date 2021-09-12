@@ -34,6 +34,7 @@
           <url-encoding v-if="active===15"/>
           <base64-gzip v-if="active===16"/>
           <unix-timestamp-to-local v-if="active===17"/>
+          <git-lab-deploy-token-to-k8s-secret v-if="active===18"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -71,6 +72,7 @@ import Base64Url from "./views/Base64Url";
 import UrlEncoding from "./views/UrlEncoding";
 import Base64Gzip from "./views/Base64Gzip";
 import UnixTimestampToLocal from "./views/UnixTimestampToLocal";
+import GitLabDeployTokenToK8sSecret from "./views/GitLabDeployTokenToK8sSecret";
 
 export default {
   name: "App",
@@ -92,7 +94,8 @@ export default {
     Base64Url,
     UrlEncoding,
     Base64Gzip,
-    UnixTimestampToLocal
+    UnixTimestampToLocal,
+    GitLabDeployTokenToK8sSecret
   },
   data: () => ({
     active: 0,
@@ -114,7 +117,8 @@ export default {
       "Base64 URL",
       "URL Encoding",
       "Base64Gzip",
-      "Unix Timestamp To Local"
+      "Unix Timestamp To Local",
+      "GitLab Deploy Token To K8s Secret",
     ]
   }),
   methods: {
