@@ -32,7 +32,7 @@ export default {
   name: "GitLabDeployTokenToK8sSecret",
   data: () => ({
     input: {
-      registry_host: "",
+      registry_host: "https://registry.gitlab.com",
       username: "",
       password: ""
     },
