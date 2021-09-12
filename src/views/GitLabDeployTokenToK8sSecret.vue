@@ -1,10 +1,19 @@
 <template>
   <div class="container">
-    <div>
-      <input v-model="input.registry_host" placeholder="registry_host" type="text"/><br/>
-      <input v-model="input.username" placeholder="username" type="text"/><br/>
-      <input v-model="input.password" placeholder="password" type="text"/>
-    </div>
+    <form action="#" method="post">
+      <label>
+        Registry Host:
+        <input v-model="input.registry_host" placeholder="" type="text"/><br/>
+      </label>
+      <label>
+        Username:
+        <input v-model="input.username" type="text"/><br/>
+      </label>
+      <label>
+        Password:
+        <input v-model="input.password" type="text"/>
+      </label>
+    </form>
     <span>
       Special thanks:
       <a href="https://github.com/dankogai/js-base64">dankogai/js-base64</a>

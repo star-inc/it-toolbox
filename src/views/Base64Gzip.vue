@@ -25,13 +25,13 @@ export default {
   watch: {
     async input() {
       try {
-        this.results.encode = new Buffer(pako.deflate(this.input, { to: 'string' })).toString("base64");
+        this.results.encode = new Buffer(pako.deflate(this.input, {to: 'string'})).toString("base64");
       } catch (e) {
         this.results.encode = "";
         void (e);
       }
       try {
-        this.results.decode = pako.inflate(new Buffer(this.input, "base64"), { to: 'string' });
+        this.results.decode = pako.inflate(new Buffer(this.input, "base64"), {to: 'string'});
       } catch (e) {
         this.results.decode = "";
         void (e);
