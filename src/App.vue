@@ -35,6 +35,7 @@
           <base64-gzip v-if="active===16"/>
           <unix-timestamp-to-local v-if="active===17"/>
           <git-lab-deploy-token-to-k8s-secret v-if="active===18"/>
+          <password-generator v-if="active===19"/>
         </td>
       </tr>
       <tr v-for="(name, key) in functions" :key="key">
@@ -73,10 +74,12 @@ import UrlEncoding from "./views/UrlEncoding";
 import Base64Gzip from "./views/Base64Gzip";
 import UnixTimestampToLocal from "./views/UnixTimestampToLocal";
 import GitLabDeployTokenToK8sSecret from "./views/GitLabDeployTokenToK8sSecret";
+import PasswordGenerator from "./views/PasswordGenerator";
 
 export default {
   name: "App",
   components: {
+    PasswordGenerator,
     Browser,
     UUIDv4,
     UnixTimestamp,
@@ -119,6 +122,7 @@ export default {
       "Base64Gzip",
       "Unix Timestamp To Local",
       "GitLab Deploy Token To K8s Secret",
+      "Password Generator",
     ]
   }),
   methods: {
