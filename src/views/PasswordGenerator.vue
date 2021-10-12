@@ -9,10 +9,7 @@
     <div>
       <span>
         Special thanks:
-        <a
-          href="https://stackoverflow.com/questions/1497481/javascript-password-generator"
-          >Gumbo</a
-        >
+        <a href="https://stackoverflow.com/questions/1497481/javascript-password-generator">Gumbo</a>
         answered the code snippet.
       </span>
     </div>
@@ -20,7 +17,7 @@
 </template>
 
 <script>
-import { encodeURI } from "js-base64";
+import {encodeURI} from "js-base64";
 
 export default {
   name: "PasswordGenerator",
@@ -39,8 +36,7 @@ export default {
       }
     },
     generateV1(length) {
-      const charset =
-        "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const charset = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
       let retVal = "";
       for (let i = 0; i < length; ++i) {
         retVal += charset.charAt(Math.floor(Math.random() * charset.length));
@@ -48,9 +44,10 @@ export default {
       return retVal;
     },
     generateV2(length) {
-      const buf = new Uint8Array(length);
-      window.crypto.getRandomValues(buf);
-      return encodeURI(String.fromCharCode.apply(null, buf));
+      const bufferValue = new Uint8Array(length);
+      window.crypto.getRandomValues(bufferValue);
+      const retVal = String.fromCharCode.apply(null, bufferValue);
+      return encodeURI(retVal).substring(0, length);
     },
     async refresh() {
       this.secret = this.generate();
