@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "IPGeo",
   data: () => ({
@@ -40,9 +38,7 @@ export default {
       if (!this.input) return;
       this.latch = true;
       try {
-        const result = await axios.get(
-            `https://restapi.starinc.xyz/basic/ip/geo?ip_addr=${this.input}`
-        );
+        const result = await this.$axios.get(`/ip/geo?ip_addr=${this.input}`);
         this.result = result.data.data;
         this.error = false;
       } catch (e) {
