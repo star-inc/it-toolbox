@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Browser",
   data: () => ({
@@ -23,7 +21,7 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get("https://restapi.starinc.xyz/basic/ip");
+      const response = await this.$axios.get("network/ip");
       this.ip_addr = response.data.data.ip_addr;
     } catch (e) {
       this.ip_addr = 'Unavailable';

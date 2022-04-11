@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <form :disabled="latch" action="#" method="post">
-      <input v-model="input" type="text"/>
-      <input type="submit" @click.prevent="submit"/>
+      <input v-model="input" type="text" />
+      <input type="submit" @click.prevent="submit" />
     </form>
     <span>
       Special thanks:
@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 const CORS_PROXY = "https://api.allorigins.win/get?url=";
 
 export default {
@@ -25,25 +23,26 @@ export default {
   data: () => ({
     input: "",
     result: null,
-    latch: false
+    latch: false,
   }),
   methods: {
     async submit() {
       if (!this.input) return;
       this.latch = true;
       try {
-        const result = await axios.get(CORS_PROXY + this.input);
+        const result = await this.$axios.get(CORS_PROXY + this.input);
         this.result = result.status === 200 ? result.data.contents : "failed";
         if (result.data.contents === null) {
-          this.result = "(Empty result, may the host you requested is not found.)";
+          this.result =
+            "(Empty result, may the host you requested is not found.)";
         }
       } catch (e) {
         this.result = "unavailable";
         console.error(e);
       }
       this.latch = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,13 +1,15 @@
 <template>
   <ul>
-    <li>Local: <code>{{ localTimestamp }}</code></li>
-    <li>Remote: <code>{{ remoteTimestamp }}</code></li>
+    <li>
+      Local: <code>{{ localTimestamp }}</code>
+    </li>
+    <li>
+      Remote: <code>{{ remoteTimestamp }}</code>
+    </li>
   </ul>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "UnixTimestamp",
   data: () => ({
@@ -15,15 +17,15 @@ export default {
   }),
   computed: {
     localTimestamp() {
-      return Math.round((new Date()).getTime() / 1000);
-    }
+      return Math.round(new Date().getTime() / 1000);
+    },
   },
   async created() {
     try {
-      const response = await axios.get("https://restapi.starinc.xyz/basic/now");
+      const response = await this.$axios.get("clock/now");
       this.remoteTimestamp = response.data.data.posix;
     } catch (e) {
-      this.remoteTimestamp = 'Unavailable';
+      this.remoteTimestamp = "Unavailable";
       console.error(e);
     }
   },

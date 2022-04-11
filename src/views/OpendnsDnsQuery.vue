@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import dnsTypes from "../asserts/dns_types.json";
 
 const OPENDNS_DNS = "https://cloudflare-dns.com/dns-query?"
@@ -66,7 +65,7 @@ export default {
       this.latch = true;
       try {
         const query = new URLSearchParams(this.input);
-        const result = await axios.get(
+        const result = await this.$axios.get(
             OPENDNS_DNS + query.toString(),
             {headers: {accept: "application/dns-json"}}
         );

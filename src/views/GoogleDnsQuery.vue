@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 const GOOGLE_DNS = "https://dns.google/resolve?name="
 
 export default {
@@ -45,7 +43,7 @@ export default {
       if (!this.input) return;
       this.latch = true;
       try {
-        const result = await axios.get(GOOGLE_DNS + this.input);
+        const result = await this.$axios.get(GOOGLE_DNS + this.input);
         this.results = result.status === 200 ? result.data.Answer : "failed";
         this.error = false;
       } catch (e) {

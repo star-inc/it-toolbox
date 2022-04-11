@@ -3,7 +3,7 @@
     <form :disabled="latch" action="#" method="post">
       <label>
         Name:
-        <input v-model="input.name" type="text"/>
+        <input v-model="input.name" type="text" />
       </label>
       <label>
         Type:
@@ -12,23 +12,23 @@
           <option value="ip_addr">IP Address</option>
         </select>
       </label>
-      <input type="submit" @click.prevent="submit"/>
+      <input type="submit" @click.prevent="submit" />
     </form>
     <ul v-show="result">
-      <li><code>{{ result }}</code></li>
+      <li>
+        <code>{{ result }}</code>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "LegacyDnsQuery",
   data: () => ({
     input: {
       name: "",
-      type: "domain"
+      type: "domain",
     },
     result: null,
     latch: false,
@@ -38,21 +38,21 @@ export default {
       if (!this.input.name) return;
       this.latch = true;
       try {
-        const result = await axios.get(
-            `https://restapi.starinc.xyz/basic/nslookup?${this.input.type}=${this.input.name}`
-        );
+        const result = await this.$axios.get("network/nslookup", {
+          params: { [this.input.type]: this.input.name },
+        });
         this.result = result.data.data;
       } catch (e) {
         if (e.response.status === 500) {
           this.result = "failed";
         } else {
-          this.result = 'unavailable';
+          this.result = "unavailable";
         }
         console.error(e);
       }
       this.latch = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
