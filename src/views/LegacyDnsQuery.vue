@@ -38,9 +38,9 @@ export default {
       if (!this.input.name) return;
       this.latch = true;
       try {
-        const result = await this.$axios.get(
-          `/nslookup?${this.input.type}=${this.input.name}`
-        );
+        const result = await this.$axios.get("network/nslookup", {
+          params: { [this.input.type]: this.input.name },
+        });
         this.result = result.data.data;
       } catch (e) {
         if (e.response.status === 500) {

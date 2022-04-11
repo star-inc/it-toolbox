@@ -33,7 +33,9 @@ export default {
       if (!this.input) return;
       this.latch = true;
       try {
-        const result = await this.$axios.get(`/whois?domain=${this.input}`);
+        const result = await this.$axios.get("network/whois", {
+          params: { domain: this.input },
+        });
         this.result = result.data.data;
         this.error = false;
       } catch (e) {

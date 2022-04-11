@@ -22,7 +22,7 @@ export default {
   },
   async created() {
     try {
-      const response = await this.$axios.get("/now");
+      const response = await this.$axios.get("clock/now");
       this.remoteTimestamp = response.data.data.posix;
     } catch (e) {
       this.remoteTimestamp = "Unavailable";
