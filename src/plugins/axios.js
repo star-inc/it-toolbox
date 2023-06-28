@@ -9,7 +9,7 @@ import axios from "axios";
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const config = {
-    baseURL: 'https://restapi.starinc.xyz/basic',
+    baseURL: 'https://metaapi.starinc.xyz/basic',
     // timeout: 60 * 1000, // Timeout
     // withCredentials: true, // Check cross-site Access-Control
 };
