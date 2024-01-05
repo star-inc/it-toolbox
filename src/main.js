@@ -1,9 +1,10 @@
-import Vue from 'vue'
-import './plugins/axios'
+import { createApp } from 'vue'
 import App from './App.vue'
 
-Vue.config.productionTip = false
+import vuetify from './plugins/vuetify'
+import router from './router';
 
-new Vue({
-    render: h => h(App),
-}).$mount('#app')
+createApp(App).
+    use(vuetify).
+    use(router).
+    mount('#app')

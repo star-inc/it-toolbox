@@ -1,31 +1,25 @@
-# web-debug
+# IT Toolbox
 
 Some simple web tools for public or developers.
 
 ## Project setup
 
-```
+```shell
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 
-```
-npm run serve
+```shell
+npm run dev
 ```
 
 ### Compiles and minifies for production
 
-```
+```shell
 npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
 ```
 
 ## Maintainer
 
-[Star Inc. Security Department](https://security.starinc.xyz/)
+[Star Inc. Security Department](https://department-security.starinc.xyz/)

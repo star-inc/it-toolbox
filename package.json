@@ -1,61 +1,38 @@
 {
-  "name": "web-debug",
-  "version": "0.1.0",
+  "name": "it-toolbox",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "js-base64": "^3.6.1",
+    "@mdi/font": "^7.3.67",
+    "@types/uuid": "^9.0.6",
+    "buffer": "^6.0.3",
+    "js-base64": "^3.7.5",
     "js-crc": "^0.2.0",
-    "js-htmlencode": "^0.3.0",
     "js-md2": "^0.2.2",
     "js-md4": "^0.3.2",
-    "js-md5": "^0.7.3",
+    "js-md5": "^0.8.3",
     "js-sha1": "^0.6.0",
-    "js-sha256": "^0.9.0",
-    "js-sha3": "^0.8.0",
+    "js-sha256": "^0.10.1",
+    "js-sha3": "^0.9.2",
     "js-sha512": "^0.8.0",
-    "pako": "^2.0.4",
-    "qr-scanner": "^1.2.0",
+    "ky": "^1.1.2",
+    "pako": "^2.1.0",
+    "qr-scanner": "^1.4.2",
     "qrious": "^4.0.2",
-    "sass": "^1.32.8",
-    "sass-loader": "^10.1.1",
-    "uuid": "^3.4.0",
-    "vue": "^2.6.11"
+    "uuid": "^9.0.1",
+    "vite-plugin-vuetify": "^1.0.2",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.3.23"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "axios": "^0.26.1",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "file-loader": "^4.3.0",
-    "vue-cli-plugin-axios-x": "~0.1.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.5"
+  }
 }
